@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammad Satrio Gandhi – Portofolio</title>
+<meta name="description" content="Portofolio Muhammad Satrio Gandhi – Mahasiswa S1 Teknologi Informasi Universitas 'Aisyiyah Yogyakarta. Web Developer & System Analyst." />
+<meta name="keywords" content="Muhammad Satrio Gandhi, portofolio, web developer, teknologi informasi, Yogyakarta" />
+<meta name="author" content="Muhammad Satrio Gandhi" />
+<meta property="og:title" content="Muhammad Satrio Gandhi – Portofolio" />
+<meta property="og:description" content="Mahasiswa S1 Teknologi Informasi yang berfokus pada pengembangan sistem informasi dan website." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%232C5F8A'/><text y='.9em' font-size='62' x='50%' text-anchor='middle' font-family='Helvetica' font-weight='bold' fill='white'>M</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #F7F5F2;
+    --surface:  #FFFFFF;
+    --ink:      #1C1C1C;
+    --mid:      #6B6B6B;
+    --faint:    #D6D0C8;
+    --accent:   #2C5F8A;
+    --accent2:  #C8A96E;
+    --radius:   6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 60px;
+    background: rgba(247,245,242,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--faint);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--mid);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── WRAPPER ── */
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 140px 0 80px;
+    border-bottom: 1px solid var(--faint);
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.25s forwards;
+  }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 520px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+  .hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-size: 0.82rem; color: var(--mid);
+    opacity: 0;
+    animation: fadeUp 0.6s 0.55s forwards;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta span::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 0; border-bottom: 1px solid var(--faint); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 600px;
+    line-height: 1.85;
+  }
+
+  /* ── SKILL TAGS ── */
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--faint);
+    color: var(--mid);
+    background: var(--surface);
+    transition: all 0.2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── PROYEK CARDS ── */
+  .projects-grid { display: flex; flex-direction: column; gap: 20px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--faint);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .card:hover::before { transform: scaleY(1); }
+
+  .card-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent2);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .card-org {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .card-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #EEF3F8;
+    color: var(--accent);
+  }
+
+  /* ── PENGALAMAN ── */
+  .exp-block {
+    background: var(--surface);
+    border: 1px solid var(--faint);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .exp-block::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; background: var(--accent);
+  }
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .exp-place {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .exp-list li {
+    font-size: 0.9rem;
+    color: var(--mid);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.65;
+  }
+  .exp-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  /* ── PENDIDIKAN ── */
+  .edu-list { display: flex; flex-direction: column; gap: 0; }
+  .edu-item {
+    display: flex; gap: 24px; align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--faint);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-year {
+    font-size: 0.78rem;
+    color: var(--mid);
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+  .edu-name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+  .edu-school { font-size: 0.85rem; color: var(--mid); margin-top: 2px; }
+
+  /* ── KONTAK ── */
+  .contact-block {
+    background: var(--ink);
+    border-radius: var(--radius);
+    padding: 48px;
+    color: #fff;
+  }
+  .contact-block .section-label { color: var(--accent2); }
+  .contact-block .section-title { color: #fff; margin-bottom: 24px; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .contact-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    padding: 16px 20px;
+  }
+  .contact-item-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+  .contact-item-value {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--mid);
+    border-top: 1px solid var(--faint);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 18px; }
+    #hero { padding: 110px 0 60px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">MSG.</a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#proyek">Proyek</a></li>
+    <li><a href="#pengalaman">Pengalaman</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <span class="hero-label">Portofolio</span>
+    <h1 class="hero-name">Muhammad Satrio <em>Gandhi</em></h1>
+    <p class="hero-desc">
+      Mahasiswa S1 Teknologi Informasi yang berfokus pada pengembangan
+      sistem informasi dan website.
+    </p>
+    <div class="hero-meta">
+      <span>Universitas 'Aisyiyah Yogyakarta</span>
+      <span>Sleman, Indonesia</span>
+      <span>2023 – Sekarang</span>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-label">Tentang Saya</p>
+      <h2 class="section-title">Siapa saya?</h2>
+    </div>
+    <p class="about-text reveal">
+      Mahasiswa S1 Teknologi Informasi Universitas 'Aisyiyah Yogyakarta dengan minat
+      pada pengembangan sistem informasi dan website. Berpengalaman magang di
+      RS PKU Muhammadiyah Gamping dalam pembuatan website SIMPKL dan sistem laporan gaji.
+      Terbiasa bekerja dalam tim, memiliki kemampuan analisis yang baik, serta cepat
+      beradaptasi dengan teknologi baru.
+    </p>
+    <div class="tag-group reveal">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">Analisis Sistem</span>
+      <span class="tag">Kerja Tim</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROYEK -->
+<section id="proyek">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-label">Proyek</p>
+      <h2 class="section-title">Yang pernah dibuat.</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="card reveal">
+        <p class="card-num">Proyek 01</p>
+        <h3 class="card-title">Website SIMPKL</h3>
+        <p class="card-org">RS PKU Muhammadiyah Gamping</p>
+        <p class="card-desc">
+          Sistem informasi berbasis web untuk pengelolaan kegiatan Praktik Kerja Lapangan (PKL).
+          Mencakup fitur pendataan peserta, pemantauan kegiatan, dan pelaporan
+          yang memudahkan administrasi rumah sakit.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">HTML</span>
+          <span class="card-tag">CSS</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">MySQL</span>
+          <span class="card-tag">PHP</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <p class="card-num">Proyek 02</p>
+        <h3 class="card-title">Sistem Laporan Gaji</h3>
+        <p class="card-org">RS PKU Muhammadiyah Gamping</p>
+        <p class="card-desc">
+          Aplikasi web untuk pencatatan dan pelaporan data penggajian karyawan secara
+          digital. Menggantikan proses manual dengan sistem yang lebih terstruktur
+          dan mudah dikelola.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">HTML</span>
+          <span class="card-tag">CSS</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">MySQL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="section-label">Pengalaman</p>
+      <h2 class="section-title">Riwayat kerja.</h2>
+    </div>
+    <div class="exp-block reveal">
+      <p class="exp-role">Web Developer – Magang</p>
+      <p class="exp-place">RS PKU Muhammadiyah Gamping</p>
+      <ul class="exp-list">
+        <li>Mengembangkan website SIMPKL untuk pengelolaan kegiatan praktik kerja lapangan.</li>
+        <li>Membuat sistem laporan gaji untuk pencatatan dan pelaporan data penggajian.</li>
+        <li>Melakukan analisis kebutuhan sistem dan pengujian fungsional aplikasi.</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 48px;" class="reveal">
+      <p class="section-label">Pendidikan</p>
+      <h2 class="section-title">Riwayat pendidikan.</h2>
+    </div>
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <span class="edu-year">2023 – Sekarang</span>
+        <div>
+          <p class="edu-name">S1 Teknologi Informasi</p>
+          <p class="edu-school">Universitas 'Aisyiyah Yogyakarta</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2019 – 2022</span>
+        <div>
+          <p class="edu-name">SMA</p>
+          <p class="edu-school">ABBS Surakarta</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2016 – 2019</span>
+        <div>
+          <p class="edu-name">SMP</p>
+          <p class="edu-school">MBS Yogyakarta</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2010 – 2016</span>
+        <div>
+          <p class="edu-name">SD</p>
+          <p class="edu-school">SDIT Ibnu Mas'ud Wates</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="wrap">
+    <div class="contact-block reveal">
+      <p class="section-label">Kontak</p>
+      <h2 class="section-title">Hubungi saya.</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <p class="contact-item-label">Email</p>
+          <p class="contact-item-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e89a81878387848783a88f85898184c68b8785">[email&#160;protected]</a></p>
+        </div>
+        <div class="contact-item">
+          <p class="contact-item-label">Telepon</p>
+          <p class="contact-item-value">0895-6215-90406</p>
+        </div>
+        <div class="contact-item">
+          <p class="contact-item-label">Lokasi</p>
+          <p class="contact-item-value">Sleman, Indonesia</p>
+        </div>
+        <div class="contact-item">
+          <p class="contact-item-label">Universitas</p>
+          <p class="contact-item-value">Universitas 'Aisyiyah Yogyakarta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Muhammad Satrio Gandhi</span>
+  <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0d2c9cfcbcfcccfcbe0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</a></span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll
